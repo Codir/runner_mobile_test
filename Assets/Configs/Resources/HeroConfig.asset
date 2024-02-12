@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: da919f7d4c674472a1b6873f40c9d1de, type: 3}
+  m_Name: HeroConfig
+  m_EditorClassIdentifier: 
+  View: {fileID: 5369418814714024352, guid: 6b2a232d465041f4491e530d50df6e51, type: 3}
+  GroundLayer:
+    serializedVersion: 2
+    m_Bits: 64
+  MoveSpeed: 1
+  JumpSpeed: 10
+  Gravity: -9.8
+  CollectRadius: 0.5
+  GroundColliderBox: {x: 0.5, y: 0.1, z: 0.3}
+  GroundColliderOffsetPosition: {x: 0, y: -0.9, z: 0}
