@@ -68,7 +68,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MovementType: 1
-  TimeLeft: 10
+  TimeLeft: 2
 --- !u!1001 &3654433890342105893
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -15,6 +15,7 @@ namespace CoreGameplay.Controllers
             if (_target == null) return;
 
             var targetPosition = (_target.position + _offsetToTarget).Multiply(Config.Multiply);
+            targetPosition.y += 2f;
             View.transform.position = Vector3.Lerp(View.transform.position, targetPosition, Config.Lerp);
         }
 
