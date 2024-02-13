@@ -9,9 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 0}
+  m_Script: {fileID: 11500000, guid: 7068e6409e5d40c1b7a1fbbceb885036, type: 3}
   m_Name: CameraConfig
-  m_EditorClassIdentifier: Assembly-CSharp:Configs:CameraConfig
+  m_EditorClassIdentifier: 
   View: {fileID: 9205772707189520115, guid: 7583e2a2a0c8fad4bb46d18300734b9b, type: 3}
   Multiply: {x: 1, y: 0.2, z: 1}
   Lerp: 0.5
