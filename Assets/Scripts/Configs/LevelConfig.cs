@@ -1,16 +1,16 @@
 ﻿using CoreGameplay;
-using CoreGameplay.Views;
 using UnityEngine;
 
 namespace Configs
 {
-    [CreateAssetMenu(fileName = "LevelConfig", menuName = "RunnerGame/LevelConfig", order = 1)]
-    public sealed class LevelConfig : BaseConfig
+    [CreateAssetMenu(fileName = "LevelConfig", menuName = "RunnerGame/LevelConfig")]
+    public sealed class LevelConfig : ScriptableObject
     {
         public int TileLenght;
         public int MaxTilesOnScreen;
+        public LevelTile StartTilePrefab;
         public LevelTile[] TilePrefab;
-        public BaseCollectibleView[] CollectiblePrefabs;
+        public CollectibleItem[] CollectiblePrefabs;
         public float FailHeight;
     }
 }

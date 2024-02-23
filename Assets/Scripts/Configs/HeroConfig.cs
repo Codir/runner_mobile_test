@@ -1,18 +1,15 @@
-﻿using CoreGameplay.Controllers;
+﻿using CoreGameplay.Hero.HeroProperties;
+using DLib.AttributesSystem;
 using UnityEngine;
 
 namespace Configs
 {
-    [CreateAssetMenu(fileName = "HeroConfig", menuName = "RunnerGame/HeroConfig", order = 0)]
-    public sealed class HeroConfig : BaseConfig
+    [CreateAssetMenu(fileName = "HeroConfig", menuName = "RunnerGame/HeroConfig")]
+    public sealed class HeroConfig : ScriptableObject
     {
-        public MovementTypes BaseMovementType;
+        public Vector3 HeroSpawnPosition;
+        public float HeroAnimationSpeed;
         public LayerMask GroundLayer;
-        public float MoveSpeed;
-        public float JumpSpeed;
-        public float Gravity;
-        public float CollectRadius;
-        public Vector3 GroundColliderBox;
-        public Vector3 GroundColliderOffsetPosition;
+        public HeroPropertyAttribute[] PropertyItems;
     }
 }

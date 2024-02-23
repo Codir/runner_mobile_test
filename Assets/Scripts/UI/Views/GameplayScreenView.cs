@@ -1,4 +1,5 @@
 using System.Globalization;
+using DLib.UI;
 using TMPro;
 using UI.Models;
 using UnityEngine;
@@ -6,50 +7,68 @@ using UnityEngine.UI;
 
 namespace UI.Views
 {
-    public class GameplayScreenView : BaseScreenView<GameplayScreenModelView>
+    public class GameplayScreenView : UIBaseScreenView<GameplayScreenModelView>
     {
-        [SerializeField] private TextMeshProUGUI _distanceTextLabel;
-        [SerializeField] private Button _menuButton;
-        [SerializeField] private Button _restartButton;
+        #region serialize fields
+
+        [SerializeField] private TextMeshProUGUI DistanceTextLabel;
+        [SerializeField] private Button MenuButton;
+        [SerializeField] private Button RestartButton;
+
+        #endregion
+
+        #region fields
 
         private string _distanceTextFormat;
 
+        #endregion
+
+        #region engine methods
+
         private void Awake()
         {
-            _distanceTextFormat = _distanceTextLabel.text;
+            _distanceTextFormat = DistanceTextLabel.text;
         }
 
         private void OnEnable()
         {
+            Model.Subscribe();
             Model.DistanceChangedEvent += OnDistanceChanged;
 
-            _menuButton.onClick.AddListener(OnMenuButtonClick);
-            _restartButton.onClick.AddListener(OnRestartButtonClick);
+            MenuButton.onClick.AddListener(OnMenuButtonClick);
+            RestartButton.onClick.AddListener(OnRestartButtonClick);
         }
 
         private void OnDisable()
         {
+            Model.Unsubscribe();
             Model.DistanceChangedEvent -= OnDistanceChanged;
 
-            _menuButton.onClick.RemoveListener(OnMenuButtonClick);
-            _restartButton.onClick.RemoveListener(OnRestartButtonClick);
+            MenuButton.onClick.RemoveListener(OnMenuButtonClick);
+            RestartButton.onClick.RemoveListener(OnRestartButtonClick);
         }
 
-        private void OnDistanceChanged(float value)
+        #endregion
+
+        #region private methods
+
+        private void OnDistanceChanged(int value)
         {
-            _distanceTextLabel.text = string.IsNullOrEmpty(_distanceTextFormat)
+            DistanceTextLabel.text = string.IsNullOrEmpty(_distanceTextFormat)
                 ? value.ToString(CultureInfo.InvariantCulture)
                 : string.Format(_distanceTextFormat, value);
         }
 
         private void OnMenuButtonClick()
         {
-            ScreensManager.ChangeScreen(ScreenTypes.MainMenuScreen);
+            UIScreensManager.ChangeScreen(UIScreenTypes.MainMenuScreen);
         }
 
         private void OnRestartButtonClick()
         {
-            ScreensManager.ChangeScreen(ScreenTypes.GameplayScreen);
+            UIScreensManager.ChangeScreen(UIScreenTypes.GameplayScreen);
         }
+
+        #endregion
     }
 }

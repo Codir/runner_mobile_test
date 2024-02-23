@@ -1,24 +1,39 @@
 using System;
+using DLib.EventBus;
+using DLib.UI.Models;
+using Events;
 
 namespace UI.Models
 {
-    public class GameplayScreenModelView : IScreenModelView
+    public class GameplayScreenModelView : IUIScreenModel, IEventListener<UpdateDistanceEvent>
     {
-        public event Action<float> DistanceChangedEvent;
+        #region fields
 
-        public float Distance
+        public event Action<int> DistanceChangedEvent;
+
+        private int _distance;
+
+        #endregion
+
+        #region public methods
+
+        public void Subscribe()
         {
-            get => _distance;
-            set
-            {
-                _distance = value;
-                if (DistanceChangedEvent is { Target: { } })
-                {
-                    DistanceChangedEvent?.Invoke(_distance);
-                }
-            }
+            AppController.EventBus.Subscribe(this);
         }
 
-        private float _distance;
+        public void Unsubscribe()
+        {
+            AppController.EventBus.Unsubscribe(this);
+        }
+
+        public void OnEvent(UpdateDistanceEvent @event)
+        {
+            _distance = @event.Distance;
+
+            DistanceChangedEvent.SafeInvoke(_distance);
+        }
+
+        #endregion
     }
 }

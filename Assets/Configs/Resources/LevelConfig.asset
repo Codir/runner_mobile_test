@@ -12,14 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5be1a7689a63413c8b0b7e5da22cfc44, type: 3}
   m_Name: LevelConfig
   m_EditorClassIdentifier: 
-  View: {fileID: 0}
   TileLenght: 10
-  MaxTilesOnScreen: 3
+  MaxTilesOnScreen: 5
+  StartTilePrefab: {fileID: 2637468953758274630, guid: 574fa38db3d076b479d570e23ab63080, type: 3}
   TilePrefab:
   - {fileID: 7663397795449881624, guid: 1974363da0f20e547b49486ff9965321, type: 3}
   - {fileID: 4249534080500602500, guid: 3f3ea9b290431d341b07f7bd953906b4, type: 3}
   CollectiblePrefabs:
-  - {fileID: 8586322437096925454, guid: ffe6ff1c8ddd01545bd7363bb8475c12, type: 3}
-  - {fileID: 5378482721726520078, guid: 589faba8a5612c0448a82228bc63f1b9, type: 3}
-  - {fileID: 595537393798351877, guid: a150617f623a15640ad27fcf2069555f, type: 3}
+  - {fileID: 4967878958212548168, guid: ffe6ff1c8ddd01545bd7363bb8475c12, type: 3}
+  - {fileID: 8329710840990453361, guid: 589faba8a5612c0448a82228bc63f1b9, type: 3}
+  - {fileID: 3867912532986466661, guid: a150617f623a15640ad27fcf2069555f, type: 3}
   FailHeight: -10
