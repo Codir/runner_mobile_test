@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 using Configs;
-using CoreGameplay.Hero.Systems;
+using CoreGameplay.Hero.HeroStrategies;
 using DLib;
 using DLib.AttributesSystem;
 using Events;
@@ -25,8 +25,8 @@ namespace CoreGameplay.Hero
         private HeroPhysicsModel _model;
 
         private ActiveEffectsController _activeEffectsController;
-        private HeroPhysicsSystem _heroPhysicsSystem;
-        private HeroAnimationSystem _heroAnimationSystem;
+        private HeroPhysicsStrategy _heroPhysicsStrategy;
+        private HeroAnimationController _heroAnimationController;
 
         #endregion
 
@@ -49,7 +49,7 @@ namespace CoreGameplay.Hero
 
         private void FixedUpdate()
         {
-            _heroPhysicsSystem.FixedUpdate(_model, Time.fixedDeltaTime);
+            _heroPhysicsStrategy.FixedUpdate(_model, Time.fixedDeltaTime);
             _activeEffectsController.Update(Time.fixedDeltaTime);
         }
 
@@ -65,8 +65,8 @@ namespace CoreGameplay.Hero
                 AttributesState = new AttributesStateModel(_config.PropertyItems),
                 Rigidbody2D = Rigidbody2D
             };
-            _heroAnimationSystem = new HeroAnimationSystem(Animator, _config.HeroAnimationSpeed);
-            _heroPhysicsSystem = new HeroPhysicsSystem(_heroAnimationSystem);
+            _heroAnimationController = new HeroAnimationController(Animator, _config.HeroAnimationSpeed);
+            _heroPhysicsStrategy = new HeroPhysicsStrategy(_heroAnimationController);
             _activeEffectsController = new ActiveEffectsController(OnCollectiblesListWasUpdated);
         }
 
@@ -86,7 +86,7 @@ namespace CoreGameplay.Hero
 
         public void OnTap()
         {
-            _heroPhysicsSystem.OnTap(_model);
+            _heroPhysicsStrategy.OnTap(_model);
         }
 
         public void OnMouseMove(Vector3 value)

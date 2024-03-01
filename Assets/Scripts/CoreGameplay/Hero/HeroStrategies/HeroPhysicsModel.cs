@@ -1,7 +1,7 @@
 ﻿using DLib.AttributesSystem;
 using UnityEngine;
 
-namespace CoreGameplay.Hero.Systems
+namespace CoreGameplay.Hero.HeroStrategies
 {
     public class HeroPhysicsModel
     {

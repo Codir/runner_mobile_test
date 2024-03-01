@@ -1,8 +1,8 @@
 ﻿using UnityEngine;
 
-namespace CoreGameplay.Hero.Systems
+namespace CoreGameplay.Hero.HeroStrategies
 {
-    public interface IHeroMoveSystem
+    public interface IHeroMoveStrategy
     {
         Vector2 FixedUpdate(HeroPhysicsModel model, float fixedDeltaTime);
         Vector2 Jump(HeroPhysicsModel model);

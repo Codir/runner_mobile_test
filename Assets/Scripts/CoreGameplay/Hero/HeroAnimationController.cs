@@ -1,8 +1,8 @@
 ﻿using UnityEngine;
 
-namespace CoreGameplay.Hero.Systems
+namespace CoreGameplay.Hero
 {
-    public class HeroAnimationSystem
+    public class HeroAnimationController
     {
         #region const
 
@@ -22,7 +22,7 @@ namespace CoreGameplay.Hero.Systems
 
         #region constructor
 
-        public HeroAnimationSystem(Animator animator, float heroAnimationSpeed)
+        public HeroAnimationController(Animator animator, float heroAnimationSpeed)
         {
             _animator = animator;
             _heroAnimationSpeed = heroAnimationSpeed;

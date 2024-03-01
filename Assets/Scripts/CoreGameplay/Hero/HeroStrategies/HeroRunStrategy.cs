@@ -1,9 +1,9 @@
 ﻿using CoreGameplay.Hero.HeroProperties;
 using UnityEngine;
 
-namespace CoreGameplay.Hero.Systems
+namespace CoreGameplay.Hero.HeroStrategies
 {
-    public class HeroRunSystem : IHeroMoveSystem
+    public class HeroRunStrategy : IHeroMoveStrategy
     {
         #region public methods
 
